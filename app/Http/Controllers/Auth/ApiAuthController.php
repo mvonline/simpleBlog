@@ -12,16 +12,16 @@ use Illuminate\Support\Str;
 
 class ApiAuthController extends Controller
 {
-    public function register(registerRequest $request)
-    {
-
-        $request['password'] = Hash::make($request['password']);
-        $request['remember_token'] = Str::random(10);
-        $user = User::create($request->toArray());
-        $token = $user->createToken('Register User')->accessToken;
-        $response = ['user' => $user, 'token' => $token];
-        return response($response, 200);
-    }
+//    public function register(registerRequest $request)
+//    {
+//
+//        $request['password'] = Hash::make($request['password']);
+//        $request['remember_token'] = Str::random(10);
+//        $user = User::create($request->toArray());
+//        $token = $user->createToken('Register User')->accessToken;
+//        $response = ['user' => $user, 'token' => $token];
+//        return response($response, 200);
+//    }
 
 
     public function login(loginRequest $request)
