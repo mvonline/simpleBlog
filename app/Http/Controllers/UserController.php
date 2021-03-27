@@ -32,13 +32,7 @@ class UserController extends Controller
      * @return Application|ResponseFactory|JsonResponse|Response
      */
     public function getUser(User $user) {
-        if ($user->exists()) {
             return response($user, 200);
-        } else {
-            return response()->json([
-                "message" => "User not found"
-            ], 404);
-        }
     }
 
     /**

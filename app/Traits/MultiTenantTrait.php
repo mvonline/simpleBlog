@@ -13,7 +13,9 @@ trait MultiTenantTrait {
             });
             static::addGlobalScope('created_by',function (Builder $builder){
                 if(auth()->check()){
-                    return $builder->where('created_by',auth()->id());
+                    if(!(auth()->user()->hasAnyRole(['manager','admin'])) ) {
+                        return $builder->where('created_by', auth()->id());
+                    }
                 }
             });
         }

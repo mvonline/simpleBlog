@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\ApiAuthController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\Cors;
 use App\Http\Middleware\is_admin;
@@ -27,6 +28,15 @@ Route::group(['middleware' => [cors::class]], function () {
             return $request->user();
         });
         Route::post('/logout', [ApiAuthController::class,'logout'])->name('logout.api');
+
+        //Blogs Routes
+        Route::get('/blogs', [BlogController::class, 'getAllBlogs']);
+        Route::get('/blogs/{blog}', [BlogController::class, 'getBlog']);
+        Route::post('/blogs', [BlogController::class, 'create']);
+        Route::put('/blogs/{blog}', [BlogController::class, 'update']);
+        Route::delete('/blogs/{blog}', [BlogController::class, 'delete']);
+
+
     });
     Route::group(['middleware' => ['auth:api',is_admin::class]], function () {
         Route::get('/users', [UserController::class, 'getAllUsers']);
