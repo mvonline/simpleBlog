@@ -81,17 +81,11 @@ class UserController extends Controller
      */
     public function delete (User $user): JsonResponse
     {
-        if($user::query()->exists()) {
-            $user->delete();
-
-            return response()->json([
+        $user->delete();
+        return response()->json([
                 "message" => "records deleted"
             ], 202);
-        } else {
-            return response()->json([
-                "message" => "User not found"
-            ], 404);
-        }
+
     }
 
 

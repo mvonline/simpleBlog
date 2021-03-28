@@ -32,18 +32,18 @@ Route::group(['middleware' => [cors::class]], function () {
         //Blogs Routes
         Route::get('/blogs', [BlogController::class, 'getAllBlogs']);
         Route::get('/blogs/{blog}', [BlogController::class, 'getBlog']);
-        Route::post('/blogs', [BlogController::class, 'create']);
-        Route::put('/blogs/{blog}', [BlogController::class, 'update']);
-        Route::delete('/blogs/{blog}', [BlogController::class, 'delete']);
+        Route::post('/blogs', [BlogController::class, 'create'])->name('blogs.store');
+        Route::put('/blogs/{blog}', [BlogController::class, 'update'])->name('blogs.update');
+        Route::delete('/blogs/{blog}', [BlogController::class, 'delete'])->name('blogs.destroy');
 
 
     });
     Route::group(['middleware' => ['auth:api',is_admin::class]], function () {
         Route::get('/users', [UserController::class, 'getAllUsers']);
         Route::get('/users/{user}', [UserController::class, 'getUser']);
-        Route::post('/users', [UserController::class, 'create']);
-        Route::put('/users/{user}', [UserController::class, 'update']);
-        Route::delete('/users/{user}', [UserController::class, 'delete']);
+        Route::post('/users', [UserController::class, 'create'])->name('users.store');
+        Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+        Route::delete('/users/{user}', [UserController::class, 'delete'])->name('users.destroy');
     });
 
 });

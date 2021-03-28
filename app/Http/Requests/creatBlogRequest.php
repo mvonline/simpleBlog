@@ -26,7 +26,7 @@ class creatBlogRequest extends FormRequest
         return [
             'title' => 'required',
             'text' => 'required',
-            'tags' => 'required|array'
+            'tags' => 'required'
         ];
     }
 }
