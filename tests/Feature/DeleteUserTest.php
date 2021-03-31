@@ -20,7 +20,7 @@ class DeleteUserTest extends TestCase
 
     }
     /** @test  */
-    public function delete()
+    public function delete_user_test()
     {
         $this->signInAdmin();
         $this->destroy()->assertStatus(202);

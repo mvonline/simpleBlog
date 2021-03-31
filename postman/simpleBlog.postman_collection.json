@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "9e92f9ee-3e34-4ac5-9306-dbfdf3367ea9",
+		"name": "simpleBlog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "CRUD",
+					"item": [
+						{
+							"name": "List of Users",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{simpleBlogUrl}}users",
+									"host": [
+										"{{simpleBlogUrl}}users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{simpleBlogUrl}}users/1",
+									"host": [
+										"{{simpleBlogUrl}}users"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"testApi\",\n    \"email\":\"test@admin.com\",\n    \"password\":\"12345678\",\n    \"password_confirmation\":\"12345678\"\n}"
+								},
+								"url": {
+									"raw": "{{simpleBlogUrl}}users",
+									"host": [
+										"{{simpleBlogUrl}}users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"testApi\",\n    \"email\":\"test@admin.com\",\n    \"password\":\"12345678\",\n    \"password_confirmation\":\"12345678\"\n}"
+								},
+								"url": {
+									"raw": "{{simpleBlogUrl}}users/11",
+									"host": [
+										"{{simpleBlogUrl}}users"
+									],
+									"path": [
+										"11"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{simpleBlogUrl}}users/11",
+									"host": [
+										"{{simpleBlogUrl}}users"
+									],
+									"path": [
+										"11"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"user@admin.com\",\n    \"password\":\"12345678\"\n}"
+						},
+						"url": {
+							"raw": "{{simpleBlogUrl}}login",
+							"host": [
+								"{{simpleBlogUrl}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOWUxZWE2NTJhZmM0NTdmOGY3ZjEzN2I0MmRjYjgzYTZjZmJmYzhkMTg2NjY4NTY3MTZjMTRiNDc3YzgxYTg0Y2E0ZmNjZjMwYTE2N2ZjZjYiLCJpYXQiOjE2MTY3ODQwNDEuNjEyODYyLCJuYmYiOjE2MTY3ODQwNDEuNjEyODcyLCJleHAiOjE2MzI2ODE2NDEuNDg5MjAzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.o58SJS0XEV2oVhHqxfbqRFhPPF35NjiVVc3TJiIRMfD_iI9kYHWsDtdy5G8QWpBdX_SsDLSeKuNNEZkQViGtZAX3HlYJHtX9YHQYc5h9HtM_qn8YXJBko5_z0XNTrfavQ5Gw-QDNPIwcVr8Fo0vc0cosgFKWPyYOMfQ15Ae8lmGQU-epAwmlxSyfFT3qqqMZ6HWuLu4lAA4BRFyKWChBmSsug2qAg-cyw2gd4q9kd06Vki_e2U0rT_x6FbBs0FORDHpPRaAKHcMQqiq6qZEgQr1KHU1gYjQOTom3gTX9DC1VU4e22Hxpxorxj2-X8jcVOFWWAbMuqywkBKKf33csV0OimZrMrsLXKwDQHHuGqJrkQG5BJFqLLy-3DO_0GLaeNACce8hqH5p-U6RAr-CHwNBr__5ef3M12YDeFOHY8EJ8cPsw_2C_Kx4spo6w464clPvX881HxcvVo-BcXqTI88TpX_WZyZOPW0tqFEvcZ4-WzPwCN7WxpoCC9q-05IW6bXRJ6k85R7FyTOh5FmwPJV0HZKr8Pm62VE4NvhhTSOxpajqrMg-DLkRoHr7mJkAj3vPzBZxKdElegtrGiRneidbZqqu0eqwO7VD7K8ggFhJ_jdLtw6tRlOSdGuEsMZWVE7rRNAuydUcPOCm9sVOO0ZNIdwSunFl5UmjB4XTrHaw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{simpleBlogUrl}}logout",
+							"host": [
+								"{{simpleBlogUrl}}logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Blog",
+			"item": [
+				{
+					"name": "CRUD",
+					"item": [
+						{
+							"name": "List of Blogs",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{manager_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{simpleBlogUrl}}blogs",
+									"host": [
+										"{{simpleBlogUrl}}blogs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show Blog",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{simpleBlogUrl}}blog/1",
+									"host": [
+										"{{simpleBlogUrl}}blog"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Blog",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\":\"testApi\",\n    \"text\":\"blog test\",\n    \"tags\":[\n        \"politcs\",\n        \"sport\",\"finance\",\"tech\"\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{simpleBlogUrl}}blogs",
+									"host": [
+										"{{simpleBlogUrl}}blogs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Blog",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\":\"testApi\",\n    \"text\":\"blog test\",\n    \"tags\":[\n        \"politcs\",\n        \"sport\",\"finance\"\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{simpleBlogUrl}}blogs/1",
+									"host": [
+										"{{simpleBlogUrl}}blogs"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{simpleBlogUrl}}blogs/1",
+									"host": [
+										"{{simpleBlogUrl}}blogs"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}
